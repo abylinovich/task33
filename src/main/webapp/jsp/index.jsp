@@ -17,18 +17,6 @@
                 <input type="submit" name="parserName" value="DOM" />
             </div>
         </form>
-        <%--<form name="loginForm" action="/action" method="get">--%>
-            <%--<input type="hidden" name="parserName" value="StAX" />--%>
-            <%--<div>--%>
-                <%--<input type="submit" value="StAX" />--%>
-            <%--</div>--%>
-        <%--</form>--%>
-        <%--<form name="loginForm" action="/action" method="get">--%>
-            <%--<input type="hidden" name="parserName" value="DOM" />--%>
-            <%--<div>--%>
-                <%--<input type="submit" value="DOM" />--%>
-            <%--</div>--%>
-        <%--</form>--%>
 </div>
 </body>
 </html>

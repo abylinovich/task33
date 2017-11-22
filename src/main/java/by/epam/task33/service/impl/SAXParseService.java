@@ -35,7 +35,6 @@ public class SAXParseService implements ParseService {
             catalog = handler.getCatalog();
         }
         return catalog;
-
     }
 
 }
