@@ -35,11 +35,11 @@ public class SAXParseService implements ParseService {
                 InputStream xmlDocumentInputStream = xmlDocumentDAO.getXMLDocumentInputStream();
                 reader.parse(new InputSource(xmlDocumentInputStream));
             } catch (SAXException e) {
-                throw new ParseException(PARSE_EXCEPTION_MESSAGE);
+                throw new ParseException(PARSE_EXCEPTION_MESSAGE + " " + e.getMessage(), e);
             } catch (FileNotFoundException e) {
-                throw new ParseException(FILE_NOT_FOUND_EXCEPTION_MESSAGE);
+                throw new ParseException(FILE_NOT_FOUND_EXCEPTION_MESSAGE + " " + e.getMessage(), e);
             } catch (IOException e) {
-                throw new ParseException(IO_EXCEPTION_MESSAGE);
+                throw new ParseException(IO_EXCEPTION_MESSAGE + " " + e.getMessage(), e);
             }
             catalog = handler.getCatalog();
         }

@@ -26,11 +26,11 @@ public class CatalogDOMHandler {
         NodeList booksList = document.getElementsByTagName(BOOK_TAG);
         for(int i = 0; i < booksList.getLength(); i++) {
             Node bookNode = booksList.item(i);
-            setProperties(bookNode);
+            createBookBean(bookNode);
         }
     }
 
-    private void setProperties(Node bookNode) {
+    private void createBookBean(Node bookNode) {
         Book book = new Book();
         String id = bookNode.getAttributes().getNamedItem(ID_ATTRIBUTE).getNodeValue();
         book.setId(Integer.parseInt(id));

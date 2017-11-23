@@ -19,9 +19,11 @@ public class ParseCommand implements Command {
     private static final String PARSER_NAME_ATTRIBUTE = "parserName";
     private static final String CATALOG_ATTRIBUTE = "catalog";
     private static final String PAGE_NUMBER_ATTRIBUTE = "pageNumber";
+    private static final String ERROR_MESSAGE_ATTRIBUTE = "errorMessage";
     private static final String FIRST_PAGE = "1";
     private static final String PAGINATION_JSP_PATH = "/jsp/pagination.jsp";
-    private static final String INDEX_JSP_PATH = "/jsp/index.jsp";
+    private static final String ERROR_PAGE_PATH = "/jsp/error.jsp";
+    private static final String RENDER_PAGE_ERROR = "Cannot render page.";
 
     @Override
     public void process(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,7 +40,8 @@ public class ParseCommand implements Command {
             }
             request.getRequestDispatcher(PAGINATION_JSP_PATH).forward(request, response);
         } catch (ParseException e) {
-            request.getRequestDispatcher(INDEX_JSP_PATH).forward(request, response);
+            request.setAttribute(ERROR_MESSAGE_ATTRIBUTE, RENDER_PAGE_ERROR + " " + e.getMessage());
+            request.getRequestDispatcher(ERROR_PAGE_PATH).forward(request, response);
         }
     }
 

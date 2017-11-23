@@ -31,9 +31,9 @@ public class STAXParseService implements ParseService {
                 handler.parse(eventReader);
                 catalog = handler.getCatalog();
             } catch (XMLStreamException e) {
-                throw new ParseException(PARSE_EXCEPTION_MESSAGE);
+                throw new ParseException(PARSE_EXCEPTION_MESSAGE + " " + e.getMessage(), e);
             } catch (FileNotFoundException e) {
-                throw new ParseException(FILE_NOT_FOUND_EXCEPTION_MESSAGE);
+                throw new ParseException(FILE_NOT_FOUND_EXCEPTION_MESSAGE + " " + e.getMessage(), e);
             }
         }
         return catalog;
