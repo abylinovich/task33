@@ -1,8 +1,9 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%--Based on pagination example:
 http://www.javaknowledge.info/jstl-1-1-paginate-table-example-with-next-previous-features/--%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <c:set var="catalog" value="${requestScope.catalog}"/>
 <c:set var="command" value="${param.command}"/>
@@ -60,6 +61,7 @@ http://www.javaknowledge.info/jstl-1-1-paginate-table-example-with-next-previous
         </c:forEach>
     </table>
 
+    <p>Pages:</p>
     <%--For displaying Previous link --%>
     <c:if test="${pageNumber gt 1}">
         <a href="action?command=${command}&parserName=${parserName}&pageNumber=${pageNumber - 1}">Previous</a>
@@ -79,3 +81,6 @@ http://www.javaknowledge.info/jstl-1-1-paginate-table-example-with-next-previous
     <c:if test="${pageNumber lt numberOfPages}">
         <a href="action?command=${command}&parserName=${parserName}&pageNumber=${pageNumber + 1}">Next</a>
     </c:if>
+
+    <br/>
+    <a href="/">Go back</a>

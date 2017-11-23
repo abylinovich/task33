@@ -1,7 +1,7 @@
 package by.epam.task33.service;
 
-import by.epam.task33.service.impl.SAXParseService;
-import by.epam.task33.service.impl.STAXParseService;
+import by.epam.task33.service.impl.sax.SAXParseService;
+import by.epam.task33.service.impl.stax.STAXParseService;
 
 import java.util.HashMap;
 import java.util.Map;

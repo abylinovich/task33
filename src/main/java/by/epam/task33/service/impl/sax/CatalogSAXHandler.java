@@ -1,7 +1,8 @@
-package by.epam.task33.service.impl;
+package by.epam.task33.service.impl.sax;
 
 import by.epam.task33.entity.Book;
 import by.epam.task33.service.CatalogTagType;
+import by.epam.task33.service.impl.CatalogHandlerUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -38,37 +39,9 @@ public class CatalogSAXHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        setProperty(qName);
-
-    }
-
-    private void setProperty(String qName) {
         CatalogTagType property = CatalogTagType.valueOf(qName.toUpperCase());
-        switch (property) {
-            case GENRE:
-                book.setGenre(characters.toString());
-                break;
-            case TITLE:
-                book.setTitle(characters.toString());
-                break;
-            case PRICE:
-                book.setPrice(Double.parseDouble(characters.toString()));
-                break;
-            case AUTHOR:
-                book.setAuthor(characters.toString());
-                break;
-            case DESCRIPTION:
-                book.setDescription(characters.toString());
-                break;
-            case PUBLISH_DATE:
-                book.setPublishDate(characters.toString());
-                break;
-            case BOOK:
-                catalog.add(book);
-                break;
-            case CATALOG:
-                break;
-        }
+        String value = characters.toString();
+        CatalogHandlerUtils.setProperty(catalog, book, property, value);
     }
 
 }
