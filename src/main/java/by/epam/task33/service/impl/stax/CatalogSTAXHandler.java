@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CatalogSTAXHandler {
 
-    private static final String BOOK = "book";
+    private static final String BOOK_TAG = "book";
     private static final String ID_ATTRIBUTE = "id";
 
     private List<Book> catalog = new ArrayList<>();
@@ -35,7 +35,7 @@ public class CatalogSTAXHandler {
                     StartElement startElement = event.asStartElement();
                     String qName = startElement.getName().getLocalPart();
                     characters = new StringBuilder();
-                    if(qName.equals(BOOK)) {
+                    if(qName.equals(BOOK_TAG)) {
                         book = new Book();
                         String id = startElement.getAttributeByName(new QName(ID_ATTRIBUTE)).getValue();
                         book.setId(Integer.parseInt(id));

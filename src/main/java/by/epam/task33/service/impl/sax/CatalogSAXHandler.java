@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CatalogSAXHandler extends DefaultHandler {
 
-    private static final String BOOK = "book";
+    private static final String BOOK_TAG = "book";
     private static final String ID_ATTRIBUTE = "id";
 
     private List<Book> catalog = new ArrayList<>();
@@ -26,7 +26,7 @@ public class CatalogSAXHandler extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         characters = new StringBuilder();
-        if(qName.equals(BOOK)) {
+        if(qName.equals(BOOK_TAG)) {
             book = new Book();
             book.setId(Integer.parseInt(attributes.getValue(ID_ATTRIBUTE)));
         }

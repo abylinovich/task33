@@ -1,5 +1,6 @@
 package by.epam.task33.service;
 
+import by.epam.task33.service.impl.dom.DOMParseService;
 import by.epam.task33.service.impl.sax.SAXParseService;
 import by.epam.task33.service.impl.stax.STAXParseService;
 
@@ -14,7 +15,7 @@ public class ParseServiceFactory {
     static {
         parsers.put(XMLParserType.SAX, new SAXParseService());
         parsers.put(XMLParserType.STAX, new STAXParseService());
-//        parsers.put(XMLParserType.DOM, new DOMParseService());
+        parsers.put(XMLParserType.DOM, new DOMParseService());
     }
 
     private ParseServiceFactory() {
