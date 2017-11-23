@@ -1,6 +1,7 @@
 package by.epam.task33.service;
 
 import by.epam.task33.service.impl.SAXParseService;
+import by.epam.task33.service.impl.STAXParseService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,7 @@ public class ParseServiceFactory {
 
     static {
         parsers.put(XMLParserType.SAX, new SAXParseService());
-//        parsers.put(XMLParserType.STAX, new StAXParseService());
+        parsers.put(XMLParserType.STAX, new STAXParseService());
 //        parsers.put(XMLParserType.DOM, new DOMParseService());
     }
 

@@ -2,6 +2,7 @@ package by.epam.task33.controller.command.impl;
 
 import by.epam.task33.controller.command.Command;
 import by.epam.task33.entity.Book;
+import by.epam.task33.exception.ParseException;
 import by.epam.task33.service.ParseService;
 import by.epam.task33.service.ParseServiceFactory;
 import org.xml.sax.SAXException;
@@ -36,7 +37,7 @@ public class ParseCommand implements Command {
                 request.setAttribute(PAGE_NUMBER_ATTRIBUTE, FIRST_PAGE);
             }
             request.getRequestDispatcher(PAGINATION_JSP_PATH).forward(request, response);
-        } catch (SAXException e) {
+        } catch (ParseException e) {
             request.getRequestDispatcher(INDEX_JSP_PATH).forward(request, response);
         }
     }
