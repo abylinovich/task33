@@ -5,8 +5,8 @@
 </head>
 <body>
 <div class="container" align="center">
-        <h2>Internal error</h2>
-        <h5>Something going wrong. Please, call your system administrator.</h5>
+    <h2>Internal error</h2>
+    <h5>Something going wrong. Please, call your system administrator.</h5>
     <p>${requestScope.errorMessage}</p>
     <a href="/">Go back</a>
 </div>
